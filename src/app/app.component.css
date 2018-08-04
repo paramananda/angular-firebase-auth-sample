@@ -1,0 +1,46 @@
+.w3-bar .w3-button {
+  padding: 18px;
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+}
+
+#header {}
+
+#navbar {
+  background: #2f364a;
+}
+
+.my-navbar-button {
+  background: #2f364a;
+}
+
+.my-hover-nocolor:hover {
+  background: transparent;
+}
+
+.my-nocolor {
+  background: transparent;
+}
+
+#body {
+  padding-top: 70px;
+  padding-bottom: 60px;
+  /* Height of the footer */
+}
+
+#footer {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  /* Height of the footer */
+  background: #37424b;
+}
+
+#container {
+  height: 100%;
+}

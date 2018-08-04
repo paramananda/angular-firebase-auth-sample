@@ -1,0 +1,77 @@
+<div id="container">
+  <div id="header">
+    <div class="w3-top">
+      <div class="w3-bar w3-text-white w3-card" id="navbar">
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hide-large w3-hide-medium" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+        </a>
+        <a href="#home" class="w3-bar-item w3-button w3-wide" style="padding-left:0px,">
+          CLOUD
+          <span class="w3-text-green">PARKER</span>
+        </a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <button *ngIf="!appService.authUser" onclick="document.getElementById('signin-modal').style.display='block'" class="w3-bar-item w3-button w3-hover-black w3-text-blue w3-hover-text-blue">LOGIN</button>
+          <div *ngIf="appService.authUser" class="w3-dropdown-hover">
+            <button class="w3-bar-item w3-button w3-hover-black w3-text-blue w3-hover-text-blue my-navbar-button">
+              <i class="fas fa-user"></i>
+              {{appService.authUser.displayName}}
+            </button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <div class="w3-bar-item  w3-blue" style="padding:18px" disabled>
+                <i class="fas fa-user"></i>
+                {{appService.authUser.displayName}}
+              </div>
+              <button (click)="signout();" class="w3-bar-item w3-button">LOGOUT</button>
+            </div>
+          </div>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      </div>
+    </div>
+  </div>
+  <div id="body">
+
+    <div id="signin-modal" class="w3-modal" #signinModal>
+      <div class="w3-modal-content w3-card-4" style="max-width: 480px;">
+        <header class="w3-container w3-blue">
+          <span onclick="document.getElementById('signin-modal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <h2>Signin</h2>
+        </header>
+        <div class="w3-container">
+          <div style="margin-top: 32px;">
+            <p class="w3-text-grey ">Sign in using following Authentication providers!</p>
+          </div>
+
+          <div style="margin-top: 32px;">
+            <button class="w3-button w3-red w3-hover-blue" onclick="document.getElementById('signin-modal').style.display='none'" (click)="googleSignin()">GOOGLE SIGN IN</button>
+          </div>
+          <p></p>
+        </div>
+        <footer class="w3-container ">
+
+        </footer>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </div>
+  <div id="footer" class="w3-display-container">
+    <div class="w3-display-middle">
+      <small class="w3-text-grey">
+        cloudparker.com © 2018 |
+        <a routerLink="/terms">Terms</a> |
+        <a routerLink="/privacy">Privacy</a>
+      </small>
+    </div>
+  </div>
+</div>
+<!-- 
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages> 
+-->
